@@ -84,7 +84,7 @@
 	    var _this = _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).call(this, props));
 
 	    _this.state = {
-	      menuUptions: ['Opción 1', 'Opción 2', 'Opción 3', 'Opción 4']
+	      menuOptions: ['Opción 1', 'Opción 2', 'Opción 3', 'Opción 4']
 	    };
 	    return _this;
 	  }
@@ -92,7 +92,16 @@
 	  _createClass(App, [{
 	    key: 'render',
 	    value: function render() {
-	      return _react2.default.createElement(_menu2.default, { options: this.state.menuUptions });
+	      return _react2.default.createElement(_menu2.default, { options: this.state.menuOptions,
+	        onAddOption: this.handleAddOption.bind(this)
+	      });
+	    }
+	  }, {
+	    key: 'handleAddOption',
+	    value: function handleAddOption() {
+	      this.setState({
+	        menuOptions: this.state.menuOptions.concat(['Nueva Opción'])
+	      });
 	    }
 	  }]);
 
@@ -21615,15 +21624,24 @@
 	    value: function render() {
 	      var options = this.props.options;
 	      return _react2.default.createElement(
-	        'ul',
+	        'div',
 	        null,
-	        options.map(function (option) {
-	          return _react2.default.createElement(
-	            'li',
-	            { key: option.toString() },
-	            option
-	          );
-	        })
+	        _react2.default.createElement(
+	          'ul',
+	          null,
+	          options.map(function (option, i) {
+	            return _react2.default.createElement(
+	              'li',
+	              { key: i },
+	              option
+	            );
+	          })
+	        ),
+	        _react2.default.createElement(
+	          'button',
+	          { onClick: this.props.onAddOption },
+	          'Nueva Opci\xF3n'
+	        )
 	      );
 	    }
 	  }]);

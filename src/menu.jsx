@@ -8,11 +8,20 @@ class Menu extends React.Component {
   render () {
     let options = this.props.options
     return (
-      <ul>
-        { options.map((option) => <li key={option.toString()}>{option}</li>) }
-      </ul>
+      <div>
+        <ul>
+          {
+            options.map((option, i) => {
+              return <li key={i}>{option}</li>
+            })
+          }
+        </ul>
+        <button onClick={this.props.onAddOption}>Nueva Opción</button>
+      </div>
+
     )
   }
+
 }
 
 export default Menu

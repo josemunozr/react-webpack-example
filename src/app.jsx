@@ -6,12 +6,20 @@ class App extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      menuUptions : ['Opción 1','Opción 2','Opción 3','Opción 4']
+      menuOptions : ['Opción 1','Opción 2','Opción 3','Opción 4']
     }
   }
 
   render () {
-    return <Menu options={this.state.menuUptions} />
+    return <Menu  options={this.state.menuOptions}
+                  onAddOption={this.handleAddOption.bind(this)}
+          />
+  }
+
+  handleAddOption () {
+    this.setState({
+      menuOptions: this.state.menuOptions.concat(['Nueva Opción'])
+    })
   }
 }
 
