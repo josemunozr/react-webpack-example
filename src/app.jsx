@@ -3,13 +3,15 @@ import ReactDOM from 'react-dom'
 import Menu from './menu'
 
 class App extends React.Component {
-  constructor() {
-    super()
+  constructor(props) {
+    super(props)
+    this.state = {
+      menuUptions : ['Opción 1','Opción 2','Opción 3','Opción 4']
+    }
   }
 
   render () {
-    let menuUptions = ['Opción 1','Opción 2','Opción 3','Opción 4']
-    return <Menu options={menuUptions} />
+    return <Menu options={this.state.menuUptions} />
   }
 }
 

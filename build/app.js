@@ -78,17 +78,21 @@
 	var App = function (_React$Component) {
 	  _inherits(App, _React$Component);
 
-	  function App() {
+	  function App(props) {
 	    _classCallCheck(this, App);
 
-	    return _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).call(this));
+	    var _this = _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).call(this, props));
+
+	    _this.state = {
+	      menuUptions: ['Opción 1', 'Opción 2', 'Opción 3', 'Opción 4']
+	    };
+	    return _this;
 	  }
 
 	  _createClass(App, [{
 	    key: 'render',
 	    value: function render() {
-	      var menuUptions = ['Opción 1', 'Opción 2', 'Opción 3', 'Opción 4'];
-	      return _react2.default.createElement(_menu2.default, { options: menuUptions });
+	      return _react2.default.createElement(_menu2.default, { options: this.state.menuUptions });
 	    }
 	  }]);
 
@@ -21616,7 +21620,7 @@
 	        options.map(function (option) {
 	          return _react2.default.createElement(
 	            'li',
-	            null,
+	            { key: option.toString() },
 	            option
 	          );
 	        })

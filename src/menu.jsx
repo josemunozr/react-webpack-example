@@ -9,7 +9,7 @@ class Menu extends React.Component {
     let options = this.props.options
     return (
       <ul>
-        {options.map((option) => <li>{option}</li>)}
+        { options.map((option) => <li key={option.toString()}>{option}</li>) }
       </ul>
     )
   }
